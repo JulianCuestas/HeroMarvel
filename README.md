@@ -9,4 +9,4 @@ Jonathan González - JavaScript Marvel
 
 Cindy Lorena Castro López
 
-prueba Nayibe
+Nayibe Leyton - Front
