@@ -1,12 +1,14 @@
 # HeroMarvel
 Proyecto trabajo colaborativo IC
+Página que permite estar informados a todos los fans de la franquicia Marvel acerca de sus comics y series favoritas.
+Frameworks:
+-Angular
+APIs de Terceros:
+-API REST => https://developer.marvel.com/
 
-Julian Cuestas - Hola Mundo
-
-Alejandro Bustamante - Hola Mundo HTML5
-
-Jonathan González - JavaScript Marvel
-
-Cindy Lorena Castro López
-
-prueba Nayibe
+Integrantes:
+-Cindy Lorena Castro López
+-Nayibe Leyton
+-Alejandro Bustamante
+-Julian Cuestas
+-Jonathan González
