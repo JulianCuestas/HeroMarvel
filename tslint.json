@@ -39,11 +39,13 @@
         "spaces"
       ]
     },
+    "interface-name": false,
     "max-classes-per-file": false,
     "max-line-length": [
       true,
       140
     ],
+    "member-access": false,
     "member-ordering": [
       true,
       {
@@ -55,6 +57,7 @@
         ]
       }
     ],
+    "no-consecutive-blank-lines": false,
     "no-console": [
       true,
       "debug",
@@ -129,6 +132,7 @@
         "check-typecast"
       ]
     },
+    "trailing-comma": false,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,
