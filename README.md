@@ -13,7 +13,7 @@ APIs de Terceros:
 
 Integrantes:
 -Cindy Lorena Castro López
--Nayibe Leyton
--Alejandro Bustamante
--Julian Cuestas
--Jonathan González
+- Nayibe Leyton
+- Alejandro Bustamante
+- Julian Cuestas
+- Jonathan González
