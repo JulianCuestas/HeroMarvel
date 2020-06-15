@@ -1,5 +1,5 @@
 # HeroMarvel
-Proyecto trabajo colaborativo IC
+Proyecto trabajo colaborativo Integración Continua
 Página que permite estar informados a todos los fans de la franquicia Marvel acerca de sus comics y series favoritas.
 
 Frameworks:
@@ -12,7 +12,7 @@ APIs de Terceros:
 -API REST => https://developer.marvel.com/
 
 Integrantes:
--Cindy Lorena Castro López
+- Cindy Lorena Castro López
 - Nayibe Leyton
 - Alejandro Bustamante
 - Julian Cuestas
