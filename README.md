@@ -12,7 +12,7 @@ APIs de Terceros:
 -API REST => https://developer.marvel.com/
 
 Integrantes:
--Cindy Lorena Castro López
+- Cindy Lorena Castro López
 - Nayibe Leyton
 - Alejandro Bustamante
 - Julian Cuestas
