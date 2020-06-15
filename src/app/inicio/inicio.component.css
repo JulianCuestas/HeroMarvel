@@ -1,4 +1,18 @@
 /* Commit 6 */
 
 
-/* Commit 7 */
+
+#title_marvel{
+    position: fixed;
+    top: 45%;
+    left: 38%;
+    margin: auto;
+    background:red;
+    font-family: 'Marvel';
+    font-size: 100pt;
+    color: white;
+    align-content: center;
+    width: 224pt;
+    height: 90pt;
+    z-index: 1;
+  }
