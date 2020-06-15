@@ -11,17 +11,9 @@ Librerías:
 APIs de Terceros:
 -API REST => https://developer.marvel.com/
 
-<<<<<<< HEAD
-Cindy Lorena Castro López
-
-prueba Nayibe
-
-Prueba con Jenkins
-=======
 Integrantes:
 -Cindy Lorena Castro López
 - Nayibe Leyton
 - Alejandro Bustamante
 - Julian Cuestas
 - Jonathan González
->>>>>>> master
