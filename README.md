@@ -1,5 +1,5 @@
 # HeroMarvel
-Proyecto trabajo colaborativo IC
+Proyecto trabajo colaborativo Integración Continua
 Página que permite estar informados a todos los fans de la franquicia Marvel acerca de sus comics y series favoritas.
 
 Frameworks:
