@@ -24,3 +24,8 @@
     height: 90pt;
     z-index: 1;
   }
+
+#title_marvel span{
+  text-align: center;
+  margin: 5px 12px; 
+}
