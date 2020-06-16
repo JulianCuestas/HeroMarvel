@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'RobotoC';
+  /* Antes de descargar el archivo, le decimos al buscador
+  que intente buscar en local la fuente con nombre
+  Cabin, Cabin Regular o Cabin-Regular */
+  src: url(assets/Fuentes/RobotoCondensed-Regular.ttf) format('truetype');
+}
