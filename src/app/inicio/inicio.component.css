@@ -1,3 +1,11 @@
+#slide_inicio{
+  height: 433pt;
+  background-image: url('../../assets/Imagenes/2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 /* Commit 6 */
 
 
@@ -16,3 +24,8 @@
     height: 90pt;
     z-index: 1;
   }
+
+#title_marvel span{
+  text-align: center;
+  margin: 5px 12px; 
+}
