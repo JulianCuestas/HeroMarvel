@@ -6,10 +6,6 @@
   background-attachment: fixed;
 }
 
-/* Commit 6 */
-
-
-
 #title_marvel{
     position: fixed;
     top: 45%;
@@ -28,4 +24,16 @@
 #title_marvel span{
   text-align: center;
   margin: 5px 12px; 
+}
+
+@media (max-width: 1010px) {
+  #title_marvel{
+    left: 28%;
+  }
+}
+
+@media (max-width: 659px) {
+  #title_marvel{
+    left: 20%;
+  }
 }
