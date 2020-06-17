@@ -7,3 +7,95 @@
   Cabin, Cabin Regular o Cabin-Regular */
   src: url(assets/Fuentes/RobotoCondensed-Regular.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'Marvel';
+  /* Antes de descargar el archivo, le decimos al buscador
+  que intente buscar en local la fuente con nombre
+  Cabin, Cabin Regular o Cabin-Regular */
+  src: url(assets/Fuentes/MarvelRegular-Dj83.ttf) format('truetype');
+}
+  
+body{
+  margin: 0px;
+  padding: 0px;
+}
+  
+#menu_nav{
+  height: 60pt;
+  background:rgb(17, 17, 17);
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 2;
+  display: flex;
+}
+
+#div_log{
+  padding-top: 15pt;
+  padding-left: 30pt; 
+  padding-right: 30pt;
+}
+
+#logo{
+  width: 30pt;
+}
+
+#div_list_n{
+  padding-top: 22pt;
+}
+
+#list_nav{
+  font-family: 'RobotoC';
+  color: white;
+  height: 39pt;
+  margin: 0px;
+}
+
+#list_nav li{
+  height: 36pt;
+  display: inline-block;
+  font-size: 10pt;
+  padding: 0px 15px;
+}
+
+#list_nav li:hover{
+  height: 33pt;
+  display: inline-block;
+  font-size: 10pt;
+  padding: 0px 15px;
+  border-bottom: 3px solid rgb(255, 70, 85);
+  cursor: pointer;
+}
+
+#nom_app{
+  position: absolute; 
+  right: 0px; 
+  height: 59pt;
+}
+
+#titulo_app{
+  color: white;
+  font-family: 'Marvel';
+  font-size: 30pt;
+  margin-top: 14pt;
+  margin-right: 20pt;
+  align-content: center;
+  background: red;
+  height: 28pt;
+}
+
+#titulo_app span{
+  padding-right: 5pt;
+  padding-left: 5pt;
+}
+
+#menu_nav2{
+  display: none;
+}
+
+#div_log_s2{
+  padding-top: 15pt; 
+  padding-left: 30pt; 
+  padding-right: 30pt;
+}
