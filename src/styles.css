@@ -7,3 +7,211 @@
   Cabin, Cabin Regular o Cabin-Regular */
   src: url(assets/Fuentes/RobotoCondensed-Regular.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'Marvel';
+  /* Antes de descargar el archivo, le decimos al buscador
+  que intente buscar en local la fuente con nombre
+  Cabin, Cabin Regular o Cabin-Regular */
+  src: url(assets/Fuentes/MarvelRegular-Dj83.ttf) format('truetype');
+}
+  
+body{
+  margin: 0px;
+  padding: 0px;
+}
+  
+#menu_nav{
+  height: 60pt;
+  background:rgb(17, 17, 17);
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 2;
+  display: flex;
+}
+
+#div_log{
+  padding-top: 15pt;
+  padding-left: 30pt; 
+  padding-right: 30pt;
+}
+
+#logo{
+  width: 30pt;
+}
+
+#div_list_n{
+  padding-top: 22pt;
+}
+
+#list_nav{
+  font-family: 'RobotoC';
+  color: white;
+  height: 39pt;
+  margin: 0px;
+}
+
+#list_nav li{
+  height: 36pt;
+  display: inline-block;
+  font-size: 10pt;
+  padding: 0px 15px;
+}
+
+#list_nav li:hover{
+  height: 33pt;
+  display: inline-block;
+  font-size: 10pt;
+  padding: 0px 15px;
+  border-bottom: 3px solid rgb(255, 70, 85);
+  cursor: pointer;
+}
+
+#nom_app{
+  position: absolute; 
+  right: 0px; 
+  height: 59pt;
+}
+
+#titulo_app{
+  color: white;
+  font-family: 'Marvel';
+  font-size: 30pt;
+  margin-top: 14pt;
+  margin-right: 20pt;
+  align-content: center;
+  background: red;
+  height: 28pt;
+}
+
+#titulo_app span{
+  padding-right: 5pt;
+  padding-left: 5pt;
+}
+
+#menu_nav2{
+  display: none;
+}
+
+#div_log_s2{
+  padding-top: 15pt; 
+  padding-left: 30pt; 
+  padding-right: 30pt;
+}
+
+#title_app2{
+  padding-top: 22pt; 
+  width: 60%; 
+  margin: 0px; 
+  padding: 10px; 
+  text-align: center;
+}
+
+#img_menu{
+  position: absolute; 
+  right: 0px; 
+  height: 59pt; 
+  width: 10%; 
+  align-items: flex-end; 
+  padding-top: 15pt;
+}
+
+#img{
+  width: 12pt; 
+  padding: 6pt; 
+  border-radius: 50%; 
+  background: rgb(33, 33, 33); 
+  text-align: center; 
+  cursor: pointer;
+}
+
+#ico_menu{
+  width: 10px;
+}
+
+#menu_resp{
+  display: none;
+}
+
+#li_titulo_mr{
+  height: 40pt; 
+  background-color: rgb(17,17,17); 
+  padding-top: 15pt; 
+  padding-left: 15pt;
+}
+
+#titulo_mr{
+  font-family: 'Marvel'; 
+  color: white; 
+  font-size: 27pt;
+}
+
+#img_close{
+  width: 12pt; 
+  padding: 6pt; 
+  border-radius: 50%; 
+  background: rgb(33, 33, 33); 
+  text-align: center; 
+  cursor: pointer; 
+  float: right; 
+  margin-right: 15pt;
+}
+
+#ul_mr{
+  list-style: none; 
+  margin: 0px; 
+  padding: 0px; 
+  color: white; 
+  font-family: 'RobotoC'; 
+  font-size: 13pt;
+}
+
+.item_ul_mr{
+  width: 100%; 
+  padding: 15pt; 
+  border-bottom: 1px solid black; 
+  cursor: pointer;
+}
+
+#contenido{
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 60pt;
+  width: 100%;
+}
+  
+@media (max-width: 1010px) {
+  #menu_nav{
+    display: none;
+  }
+
+  #menu_nav2{
+    height: 60pt;
+    background:rgb(17, 17, 17);
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 2;
+    display: flex;
+  }
+
+  #title_app2 span{
+    color: white;
+    font-family: 'Marvel';
+    font-size: 30pt;
+    background: red;
+    height: 22pt;
+  }
+
+  #menu_resp{
+    height: 100%; 
+    width: 238pt;  
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    z-index: 2; 
+    background-color: rgb(33,33,33);
+  }
+}
