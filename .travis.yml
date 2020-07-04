@@ -10,4 +10,4 @@ before_script:
 script:
     - ng build --base-href https://JulianCuestas.github.io/HeroMarvel/
 deploy:
-    ngh
+    - ngh
