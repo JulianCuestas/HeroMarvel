@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicioAPIService } from './ServicioAPI/servicio-api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // Commit 13
+  constructor(){}
+
   title = 'Marvel';
   
   mostrar_menu(){
@@ -15,4 +19,8 @@ export class AppComponent {
   cerrar_menu(){
     document.getElementById('menu_resp').style.display = 'none';
   }
+  
+  
+  // Commit 17
+
 }
