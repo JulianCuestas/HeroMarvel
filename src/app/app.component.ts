@@ -16,3 +16,10 @@ export class AppComponent {
     document.getElementById('menu_resp').style.display = 'none';
   }
 }
+
+/**
+   * Cargar el servicio como parámetro del constructor para poder usar
+   * sus métodos internos
+   * @param datosMarvel 
+   */
+  constructor(private datosMarvel: ServicioAPIService){}
