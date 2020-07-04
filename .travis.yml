@@ -5,12 +5,8 @@ cache: npm
 
 install:
     - npm install
+before_script:
+    - npm install -g angular-cli-ghpages    
 script:
-    - npm run-script build
-deploy:
-    provider: pages
-    skip-cleanup: true
-    github-token: $GITHUB_TOKEN
-    local_dir: dist/
-    on: 
-        branch: master
+    - ng build --base-href https://JulianCuestas.github.io/HeroMarvel/
+    - ngh
