@@ -1,47 +1,11 @@
-.card{
-  border-radius: .8rem;
-  background-color: #f5f5f5e0;
-  padding: 10px 15px;
-  margin: 1rem 1.5rem;
-  border: black solid 1px;
-}
+/*Commit 14*/
 
-.card-title{
-  font-family: 'Piedra', cursive;
-  letter-spacing: 1px;
-  font-size: 1.2rem;
-  text-align: center;
-}
 
-.borde-menu{
-  color: rgb(255, 70, 85);
-  letter-spacing: 1px;
-  font-weight: bold;
-}
+/*Commit 15*/
 
-.imagen-character{
- width: 250px;
- height: 230px;
- margin-left: 1.9rem;
- margin-top: 1rem;
- border-radius: .3rem;
- box-shadow: #353636 2px -2px 4px;
-}
 
-.imagen-comics{
-  width: 280px;
-  height: 320px;
-  margin-left: .9rem;
-  margin-top: 1rem;
-  border-radius: .3rem;
-  box-shadow: #353636 2px -2px 4px;
-  /* color: #3536367a; */
- }
+/*Commit 16*/
 
-.items{
-  font-weight: bold;
-  font-family: 'Tajawal', sans-serif;
-}
 
 /* You can add global styles to this file, and also import other style files */
 
