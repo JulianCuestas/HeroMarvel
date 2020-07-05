@@ -24,3 +24,10 @@ export class AppComponent {
   // Commit 17
 
 }
+
+/**
+   * Cargar el servicio como parámetro del constructor para poder usar
+   * sus métodos internos
+   * @param datosMarvel 
+   */
+  constructor(private datosMarvel: ServicioAPIService){}
