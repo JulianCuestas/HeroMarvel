@@ -1,5 +1,17 @@
-/*Commit 14*/
+.card{
+  border-radius: .8rem;
+  background-color: #f5f5f5e0;
+  padding: 10px 15px;
+  margin: 1rem 1.5rem;
+  border: black solid 1px;
+}
 
+.card-title{
+  font-family: 'Piedra', cursive;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  text-align: center;
+}
 
 /*Commit 15*/
 
