@@ -23,9 +23,9 @@ export class ServicioAPIService {
     fetch(url)
       .then((resp => {
         return resp.json();
-      }))
+        }))
       .then((datos => { 
-	}))
+	      }))
       .catch((error) => {
         alert(`Hubo errores en la consulta a la API, error: \n${error}`);
       })
@@ -56,6 +56,7 @@ export class ServicioAPIService {
     // Agregar el template literal al contenedor que deseamos mostrar la información
     document.querySelector('#contenedorCards').innerHTML = templateHTML;
   }
+
 
   pintarSeries(datos){
     const contenedor = document.getElementById('contenedorCards');
@@ -109,10 +110,36 @@ export class ServicioAPIService {
   }
   
   
-  // Commit 12
+  // Método para pintar Personajes
+  pintarCharacters(datos){
+    const contenedor = document.getElementById('contenedorCards');
+    let templateHTML = "";
 
+    for (const hero of datos.data.results) {
+      if (hero.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available") {
+        continue;
+      }else {
+        let urlHero = hero.urls[0].url;
+        templateHTML += `
+        <div class="card" style="width: 19rem;" >
+            <a href="${urlHero} target="_blank" >
+              <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-character" />
+            </a><br/>
+            <div class="card-title">${hero.name}</div>
+        </div>
+      `;
+      }
+    }
 
-  // Commit 11
+    /**
+     * Estilos para el contenedor principal
+     */
+    contenedor.style.paddingTop = "5rem";
+    contenedor.style.borderRadius = ".8rem";
+    contenedor.style.background = "#3536367a";
+    // Agregar el template literal al contenedor que deseamos mostrar la información
+    document.querySelector('#contenedorCards').innerHTML = templateHTML;
+  }
 
 
   // Commit 10
