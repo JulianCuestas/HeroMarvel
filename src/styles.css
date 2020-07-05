@@ -16,8 +16,23 @@
 /*Commit 15*/
 
 
-/*Commit 16*/
-
+.imagen-character{
+  width: 250px;
+  height: 230px;
+  margin-left: 1.9rem;
+  margin-top: 1rem;
+  border-radius: .3rem;
+  box-shadow: #353636 2px -2px 4px;
+ }
+ 
+ .imagen-comics{
+   width: 280px;
+   height: 320px;
+   margin-left: .9rem;
+   margin-top: 1rem;
+   border-radius: .3rem;
+   box-shadow: #353636 2px -2px 4px;
+  }
 
 /* You can add global styles to this file, and also import other style files */
 
