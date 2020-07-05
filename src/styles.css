@@ -13,8 +13,16 @@
   text-align: center;
 }
 
-/*Commit 15*/
+.borde-menu{
+  color: rgb(255, 70, 85);
+  letter-spacing: 1px;
+  font-weight: bold;
+}
 
+.items{
+  font-weight: bold;
+  font-family: 'Tajawal', sans-serif;
+}
 
 /*Commit 16*/
 
