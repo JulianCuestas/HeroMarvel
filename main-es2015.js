@@ -48,7 +48,7 @@ class ServicioAPIService {
      * @param item
      */
     construirUrl(item) {
-        let url = `https://gateway.marvel.com/v1/public/${item}?ts=1&apikey=${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apikey}&limit=100`;
+        let url = `http://gateway.marvel.com/v1/public/${item}?ts=1&apikey=${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apikey}&limit=100`;
         /**
          * Llamar método obtenerDatosAPI() propio del servicio
          * => Recibe como parámetro la url construida
