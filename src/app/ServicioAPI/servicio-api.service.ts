@@ -25,7 +25,48 @@ export class ServicioAPIService {
         return resp.json();
       }))
       .then((datos => { 
-	}))
+        /**
+         * Una vez obtenidos los datos llamar el método que se encargará 
+         * de mostrar la información en cards dentro del contenedor principal 
+         * por medio de un swicth sabrá que información mostrar.
+         */
+        switch (item) {
+          case 'characters': {
+            setTimeout( ()=> {
+              this.pintarCharacters(datos);
+            }, 800);
+            break;
+          }
+          case 'comics': {
+            setTimeout( ()=> {
+              this.pintarComics(datos);
+            }, 800);
+            break;
+          }
+          case 'creators': {
+            setTimeout( ()=> {
+              this.pintarCreators(datos);
+            }, 800);
+            break;
+          }
+          case 'stories':{
+            setTimeout( ()=> {
+              this.pintarStories(datos);
+            }, 800);
+            break;
+          }
+          case 'series': {
+            setTimeout( ()=> {
+              this.pintarSeries(datos);
+            }, 800);
+            break;
+          }
+          default: {
+            alert('La opción seleccionada no es válida!!');
+            break;
+          }
+        } 
+      }))
       .catch((error) => {
         alert(`Hubo errores en la consulta a la API, error: \n${error}`);
       })
