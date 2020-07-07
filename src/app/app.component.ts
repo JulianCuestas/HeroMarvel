@@ -7,8 +7,13 @@ import { ServicioAPIService } from './ServicioAPI/servicio-api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // Commit 13
-  constructor(){}
+
+  /**
+   * Cargar el servicio como parámetro del constructor para poder usar
+   * sus métodos internos
+   * @param datosMarvel 
+   */
+  constructor(private datosMarvel: ServicioAPIService){}
 
   title = 'Marvel';
   
@@ -20,14 +25,28 @@ export class AppComponent {
     document.getElementById('menu_resp').style.display = 'none';
   }
   
-  
-  // Commit 17
+  /**
+   * Método para obtener el id del botón presionado en el aside.
+   * => Recibe como parámetro un event para saber en donde se disparo el event
+   *    y así obtener el Id de los botones
+   * @param e 
+   */
+  botonPresionado (e) {
+    let item;
+
+    /**
+     * Los botones están compuestos por tags <li>
+     */
+    if(e.target.localName === "li") {
+      item = e.target.id;
+      console.log(item);
+    }
+
+    /**
+     * Llamar función obtenerDatosCompletosXItem del servicio DatosAPIService
+     * => Recibe como parámetro el item con el id obtenido
+     */
+    this.datosMarvel.construirUrl(item);
+  }
 
 }
-
-/**
-   * Cargar el servicio como parámetro del constructor para poder usar
-   * sus métodos internos
-   * @param datosMarvel 
-   */
-  constructor(private datosMarvel: ServicioAPIService){}
