@@ -89,7 +89,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ServicioAPIService, [{
         key: "construirUrl",
         value: function construirUrl(item) {
-          var url = "http://gateway.marvel.com/v1/public/".concat(item, "?ts=1&apikey=").concat(src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apikey, "&limit=100");
+          var url = "https://gateway.marvel.com/v1/public/".concat(item, "?ts=1&apikey=").concat(src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apikey, "&limit=100");
           /**
            * Llamar método obtenerDatosAPI() propio del servicio
            * => Recibe como parámetro la url construida
