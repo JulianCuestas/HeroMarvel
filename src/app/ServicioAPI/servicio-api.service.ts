@@ -9,7 +9,21 @@ import { NgStyle } from '@angular/common';
 export class ServicioAPIService {
 
   constructor() { }
-  // Commit 5
+
+  /**
+   * Método para construir la url del recurso que se va a consumir
+   * luego llama al método del servicio obtenerDatosAPI()
+   * => Recibe como parámetro el id del botón 
+   * @param item 
+   */
+  construirUrl (item) {
+    let url = `http://gateway.marvel.com/v1/public/${item}?ts=1&apikey=${environment.apikey}&limit=100`;
+    /**
+     * Llamar método obtenerDatosAPI() propio del servicio
+     * => Recibe como parámetro la url construida
+     */
+    this.obtenerDatosAPI(url, item);
+  }
 
 
   /**
