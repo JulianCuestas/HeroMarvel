@@ -85,8 +85,75 @@ export class ServicioAPIService {
         alert(`Hubo errores en la consulta a la API, error: \n${error}`);
       })
   }
-  
-  pintarStories(datos){
+
+  // Método para pintar Personajes
+  pintarCharacters(datos) {
+    const contenedor = document.getElementById('contenedorCards');
+    let templateHTML = "";
+
+    for (const hero of datos.data.results) {
+      if (hero.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available") {
+        continue;
+      } else {
+        let urlHero = hero.urls[0].url;
+        templateHTML += `
+          <div class="card" style="width: 19rem;" >
+              <a href="${urlHero} target="_blank" >
+                <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-character" />
+              </a><br/>
+              <div class="card-title">${hero.name}</div>
+          </div>
+        `;
+      }
+    }
+
+    /**
+     * Estilos para el contenedor principal
+     */
+    contenedor.style.paddingTop = "5rem";
+    contenedor.style.borderRadius = ".8rem";
+    contenedor.style.background = "#3536367a";
+    // Agregar el template literal al contenedor que deseamos mostrar la información
+    document.querySelector('#contenedorCards').innerHTML = templateHTML;
+  }
+
+  // Commit 11
+  pintarComics(datos) {
+    const contenedor = document.getElementById('contenedorCards');
+    document.getElementById('title_marvel').style.display = "none";
+    console.log(datos);
+    let templateHTML = "";
+
+    for (const hero of datos.data.results) {
+
+      if (hero.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available") {
+        continue;
+      } else {
+        let urlHero = hero.urls[0].url;
+        templateHTML += `
+            <div class="card" style="width: 19rem;" >
+                <div class="card-title">${hero.title}</div><br/>
+                <span class="items">Páginas: ${hero.pageCount}</span><br/>
+                <span class="items">Formato: ${hero.format}</span>
+                <a href="${urlHero} target="_blank">
+                  <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-comics" />
+                </a>
+            </div>
+          `;
+      }
+    }
+
+    /**
+     * Estilos para el contenedor principal
+     */
+    contenedor.style.paddingTop = "5rem";
+    contenedor.style.borderRadius = ".8rem";
+    contenedor.style.background = "#3536367a";
+    // Agregar el template literal al contenedor que deseamos mostrar la información
+    document.querySelector('#contenedorCards').innerHTML = templateHTML;
+  }
+
+  pintarStories(datos) {
     const contenedor = document.getElementById('contenedorCards');
     document.getElementById('title_marvel').style.display = "none";
     console.log(datos);
@@ -94,7 +161,7 @@ export class ServicioAPIService {
 
     for (const hero of datos.data.results) {
       let urlHero = hero.series.collectionURI;
-        templateHTML += `
+      templateHTML += `
           <div class="card" style="width: 19rem;" >
               <div class="card-title">${hero.originalIssue.name}</div><br/>
               <span class="items">Descripción: ${hero.title}</span>
@@ -112,26 +179,26 @@ export class ServicioAPIService {
     document.querySelector('#contenedorCards').innerHTML = templateHTML;
   }
 
-  pintarSeries(datos){
+  pintarSeries(datos) {
     const contenedor = document.getElementById('contenedorCards');
     console.log(datos);
     let templateHTML = "";
 
     for (const hero of datos.data.results) {
-      
+
       if (hero.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available") {
         continue;
-      }else {
+      } else {
         let urlHero = hero.urls[0].url;
         let url2 = `${hero.characters.collectionURI}?ts=1&apikey=${environment.apikey}`;
         let template2 = "";
 
         fetch(url2)
-          .then( res => {
+          .then(res => {
             return res.json();
           })
-          .then( dat => {
-            for (const c of dat.data.results){
+          .then(dat => {
+            for (const c of dat.data.results) {
               template2 += ` ${c.name},`;
 
               templateHTML += `
@@ -145,9 +212,9 @@ export class ServicioAPIService {
                 </div>
               `;
 
-               /**
-               * Estilos para el contenedor principal
-               */
+              /**
+              * Estilos para el contenedor principal
+              */
               contenedor.style.paddingTop = "5rem";
               contenedor.style.borderRadius = ".8rem";
               contenedor.style.background = "#3536367a";
@@ -156,33 +223,25 @@ export class ServicioAPIService {
 
             }
           })
-          .catch( err => {
+          .catch(err => {
             console.log(err);
           })
       }
     }
   }
-  
-  
-  // Commit 12
 
 
-  // Commit 11
-
-
-  Archivo: servicio-api.services.ts
-
-  pintarCreators(datos){
+  pintarCreators(datos) {
     const contenedor = document.getElementById('contenedorCards');
     document.getElementById('title_marvel').style.display = "none";
     console.log(datos);
     let templateHTML = "";
 
     for (const hero of datos.data.results) {
-      
+
       if (hero.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available") {
         continue;
-      }else {
+      } else {
         let urlHero = hero.urls[0].url;
         templateHTML += `
           <div class="card" style="width: 19rem;" >
