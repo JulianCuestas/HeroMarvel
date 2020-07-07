@@ -205,8 +205,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           contenedor.style.background = "#3536367a"; // Agregar el template literal al contenedor que deseamos mostrar la información
 
           document.querySelector('#contenedorCards').innerHTML = templateHTML;
-        } // Commit 11
-
+        }
       }, {
         key: "pintarComics",
         value: function pintarComics(datos) {
