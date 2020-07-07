@@ -117,7 +117,6 @@ export class ServicioAPIService {
     document.querySelector('#contenedorCards').innerHTML = templateHTML;
   }
 
-  // Commit 11
   pintarComics(datos) {
     const contenedor = document.getElementById('contenedorCards');
     document.getElementById('title_marvel').style.display = "none";
@@ -230,7 +229,6 @@ export class ServicioAPIService {
     }
   }
 
-
   pintarCreators(datos) {
     const contenedor = document.getElementById('contenedorCards');
     document.getElementById('title_marvel').style.display = "none";
@@ -263,12 +261,5 @@ export class ServicioAPIService {
     // Agregar el template literal al contenedor que deseamos mostrar la información
     document.querySelector('#contenedorCards').innerHTML = templateHTML;
   }
-
-
-  // Commit 9
-
-
-  // Commit 8
-
 
 }
