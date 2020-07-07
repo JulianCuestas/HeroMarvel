@@ -17,7 +17,7 @@ export class ServicioAPIService {
    * @param item 
    */
   construirUrl (item) {
-    let url = `https://gateway.marvel.com/v1/public/${item}?ts=1&apikey=${environment.apikey}&limit=100`;
+    let url = `http://gateway.marvel.com/v1/public/${item}?ts=1&apikey=${environment.apikey}&limit=100`;
     /**
      * Llamar método obtenerDatosAPI() propio del servicio
      * => Recibe como parámetro la url construida
