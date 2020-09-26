@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Marvel"
+    }
+  },
+  "defaultProject": "Marvel",
+  "cli": {
+    "analytics": false
+  }
 }
