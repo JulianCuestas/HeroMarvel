@@ -121,41 +121,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             switch (item) {
               case 'characters':
                 {
-                  setTimeout(function () {
-                    _this.pintarCharacters(datos);
-                  }, 800);
+                  _this.pintarCharacters(datos);
+
                   break;
                 }
 
               case 'comics':
                 {
-                  setTimeout(function () {
-                    _this.pintarComics(datos);
-                  }, 800);
+                  _this.pintarComics(datos);
+
                   break;
                 }
 
               case 'creators':
                 {
-                  setTimeout(function () {
-                    _this.pintarCreators(datos);
-                  }, 800);
+                  _this.pintarCreators(datos);
+
                   break;
                 }
 
               case 'stories':
                 {
-                  setTimeout(function () {
-                    _this.pintarStories(datos);
-                  }, 800);
+                  _this.pintarStories(datos);
+
                   break;
                 }
 
               case 'series':
                 {
-                  setTimeout(function () {
-                    _this.pintarSeries(datos);
-                  }, 800);
+                  _this.pintarSeries(datos);
+
                   break;
                 }
 
@@ -165,8 +160,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   break;
                 }
             }
+
+            document.getElementById('loadingPage').style.display = '';
           })["catch"](function (error) {
             alert("Hubo errores en la consulta a la API, error: \n".concat(error));
+            document.getElementById('loadingPage').style.display = '';
           });
         } // Método para pintar Personajes
 
@@ -479,6 +477,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "botonPresionado",
         value: function botonPresionado(e) {
+          document.getElementById('loadingPage').style.display = 'block';
           var item;
           /**
            * Los botones están compuestos por tags <li>
@@ -508,9 +507,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: AppComponent,
       selectors: [["app-root"]],
-      decls: 47,
+      decls: 49,
       vars: 0,
-      consts: [["id", "menu_nav"], ["id", "div_log"], ["id", "logo", "src", "./assets/Imagenes/shield_b.png"], ["id", "div_list_n"], ["id", "list_nav", 3, "click"], ["id", "comics"], ["id", "creators"], ["id", "characters"], ["id", "stories"], ["id", "series"], ["id", "nom_app"], ["id", "titulo_app"], ["id", "menu_nav2"], ["id", "div_log_s2"], ["id", "title_app2"], ["id", "img_menu", 3, "click"], ["id", "img"], ["id", "ico_menu", "src", "./assets/Imagenes/menu.png"], ["id", "menu_resp"], ["id", "li_titulo_mr"], ["id", "titulo_mr"], ["id", "img_close", 3, "click"], ["src", "./assets/Imagenes/close.png", 2, "width", "10px"], ["id", "ul_mr", 3, "click"], ["id", "characters", 1, "item_ul_mr"], ["id", "comics", 1, "item_ul_mr"], ["id", "creators", 1, "item_ul_mr"], ["id", "stories", 1, "item_ul_mr"], ["id", "series", 1, "item_ul_mr"], ["id", "contenido"]],
+      consts: [["id", "menu_nav"], ["id", "div_log"], ["id", "logo", "src", "./assets/Imagenes/shield_b.png"], ["id", "div_list_n"], ["id", "list_nav", 3, "click"], ["id", "comics"], ["id", "creators"], ["id", "characters"], ["id", "stories"], ["id", "series"], ["id", "nom_app"], ["id", "titulo_app"], ["id", "menu_nav2"], ["id", "div_log_s2"], ["id", "title_app2"], ["id", "img_menu", 3, "click"], ["id", "img"], ["id", "ico_menu", "src", "./assets/Imagenes/menu.png"], ["id", "menu_resp"], ["id", "li_titulo_mr"], ["id", "titulo_mr"], ["id", "img_close", 3, "click"], ["src", "./assets/Imagenes/close.png", 2, "width", "10px"], ["id", "ul_mr", 3, "click"], ["id", "characters", 1, "item_ul_mr"], ["id", "comics", 1, "item_ul_mr"], ["id", "creators", 1, "item_ul_mr"], ["id", "stories", 1, "item_ul_mr"], ["id", "series", 1, "item_ul_mr"], ["id", "loadingPage", "hidden", "", 1, "loading"], ["src", "../assets/Imagenes/marvel_loader.gif"], ["id", "contenido"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -677,7 +676,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 29);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](46, "app-inicio");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](46, "img", 30);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "div", 31);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](48, "app-inicio");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
