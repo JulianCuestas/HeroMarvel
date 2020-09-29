@@ -16,11 +16,12 @@ body {
 }
 
 footer{
-	width: 100%;
 	background: #BE0D0D;
+	position: relative;
+    clear:both;
+	width: 100%;
 	color: white;
-	position: absolute;
-    bottom: 0;
+	margin-top: -5px;
 }
 
 .containerAll{
