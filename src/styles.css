@@ -1,3 +1,37 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+.loading {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    z-index: 10000;
+}
+
+.loading::before, .loading::after {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.loading > img{
+    width: 120px !important;
+    height: 100px !important;
+    margin-top: -60px;
+    margin-left: -50px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+}
+
 .card{
   border-radius: .8rem;
   background-color: #f5f5f5e0;

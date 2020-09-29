@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 // Importar environment donde se guardo la API KEY por defecto
 import { environment } from 'src/environments/environment';
-import { NgStyle } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicioAPIService {
 
-  constructor() { }
+  constructor() {}
 
   /**
    * Método para construir la url del recurso que se va a consumir
@@ -16,7 +15,7 @@ export class ServicioAPIService {
    * => Recibe como parámetro el id del botón 
    * @param item 
    */
-  construirUrl (item) {
+  construirUrl(item) {
     let url = `https://gateway.marvel.com/v1/public/${item}?ts=1&apikey=${environment.apikey}&limit=100`;
     /**
      * Llamar método obtenerDatosAPI() propio del servicio
@@ -46,43 +45,35 @@ export class ServicioAPIService {
          */
         switch (item) {
           case 'characters': {
-            setTimeout( ()=> {
-              this.pintarCharacters(datos);
-            }, 800);
+            this.pintarCharacters(datos);
             break;
           }
           case 'comics': {
-            setTimeout( ()=> {
-              this.pintarComics(datos);
-            }, 800);
+            this.pintarComics(datos);
             break;
           }
           case 'creators': {
-            setTimeout( ()=> {
-              this.pintarCreators(datos);
-            }, 800);
+            this.pintarCreators(datos);
             break;
           }
           case 'stories':{
-            setTimeout( ()=> {
-              this.pintarStories(datos);
-            }, 800);
+            this.pintarStories(datos);
             break;
           }
           case 'series': {
-            setTimeout( ()=> {
-              this.pintarSeries(datos);
-            }, 800);
+            this.pintarSeries(datos);
             break;
           }
           default: {
             alert('La opción seleccionada no es válida!!');
             break;
           }
-        } 
+        }
+        document.getElementById('loadingPage').style.display = '';
       }))
       .catch((error) => {
         alert(`Hubo errores en la consulta a la API, error: \n${error}`);
+        document.getElementById('loadingPage').style.display = '';
       })
   }
 

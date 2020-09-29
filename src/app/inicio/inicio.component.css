@@ -2,7 +2,7 @@
   height: 433pt;
   background-image: url('../../assets/Imagenes/2.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-attachment: fixed;
 }
 
@@ -27,8 +27,8 @@ margin: 5px 12px;
 }
 
 .contenedor1 {
+  background-image: url('../../assets/Imagenes/2.jpg');
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,6 +43,11 @@ margin: 5px 12px;
   overflow: auto;
 }
 
+@media (min-width: 1285px) {
+  #slide_inicio{
+    height: 670pt;
+  }
+}
 @media (max-width: 1010px) {
   #title_marvel{
     left: 28%;
