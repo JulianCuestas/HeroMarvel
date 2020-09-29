@@ -49,6 +49,10 @@ export class ServicioAPIService {
          * de mostrar la información en cards dentro del contenedor principal 
          * por medio de un swicth sabrá que información mostrar.
          */
+        if(datos.data.results.length > 0){
+          document.getElementById('main_slide').style.display = 'none';
+          document.getElementById('title_marvel').style.display = "none";
+        }
         switch (item) {
           case 'characters': {
             this.pintarCharacters(datos);
@@ -116,7 +120,6 @@ export class ServicioAPIService {
 
   pintarComics(datos) {
     const contenedor = document.getElementById('contenedorCards');
-    document.getElementById('title_marvel').style.display = "none";
     console.log(datos);
     let templateHTML = "";
 
@@ -153,7 +156,6 @@ export class ServicioAPIService {
 
   pintarStories(datos) {
     const contenedor = document.getElementById('contenedorCards');
-    document.getElementById('title_marvel').style.display = "none";
     console.log(datos);
     let templateHTML = "";
 
@@ -230,7 +232,6 @@ export class ServicioAPIService {
 
   pintarCreators(datos) {
     const contenedor = document.getElementById('contenedorCards');
-    document.getElementById('title_marvel').style.display = "none";
     console.log(datos);
     let templateHTML = "";
 

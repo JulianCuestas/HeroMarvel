@@ -1,9 +1,11 @@
-#slide_inicio{
-  height: 433pt;
-  background-image: url('../../assets/Imagenes/2.jpg');
-  background-size: cover;
-  background-repeat: repeat-y;
-  background-attachment: fixed;
+#main_slide {
+  display: block;
+  width: 100%;
+}
+
+#main_slide img{
+  width: 100%;
+  height: 70vh;
 }
 
 #title_marvel{
