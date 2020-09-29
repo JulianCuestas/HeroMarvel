@@ -862,7 +862,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-footer"]],
       decls: 59,
       vars: 0,
-      consts: [[1, "containerAll"], [1, "containerContactos"], [1, "columna1"], [1, "columna2"], [1, "filas"], ["href", "https://www.facebook.com", "target", "_blank"], ["src", "./../assets/Imagenes/footer/facebook.png"], ["href", "https://www.instagram.com", "target", "_blank"], ["src", "./../assets/Imagenes/footer/insta.png"], ["href", "https://www.twitter.com", "target", "_blank"], ["src", "./../assets/Imagenes/footer/twitter.png"], ["href", "https://www.whatsapp.com", "target", "_blank"], ["src", "./../assets/Imagenes/footer/whats.png"], ["href", "https://www.youtube.com", "target", "_blank"], ["src", "./../assets/Imagenes/footer/youtube.png"], [1, "columna3"], [1, "filaContactos"], ["src", "./../assets/Imagenes/footer/home.png"], ["src", "./../assets/Imagenes/footer/mail.png"], ["src", "./../assets/Imagenes/footer/cell.png"], [1, "containerFooter"], [1, "copyright"], [1, "marvel"], ["href", "https://www.marvel.com", "target", "_blank"]],
+      consts: [[1, "containerAll"], [1, "containerContactos"], [1, "columna1"], [1, "columna2"], [1, "filas"], ["href", "https://www.facebook.com", "target", "_blank"], ["src", "./assets/Imagenes/footer/facebook.png"], ["href", "https://www.instagram.com", "target", "_blank"], ["src", "./assets/Imagenes/footer/insta.png"], ["href", "https://www.twitter.com", "target", "_blank"], ["src", "./assets/Imagenes/footer/twitter.png"], ["href", "https://www.whatsapp.com", "target", "_blank"], ["src", "./assets/Imagenes/footer/whats.png"], ["href", "https://www.youtube.com", "target", "_blank"], ["src", "./assets/Imagenes/footer/youtube.png"], [1, "columna3"], [1, "filaContactos"], ["src", "./assets/Imagenes/footer/home.png"], ["src", "./assets/Imagenes/footer/mail.png"], ["src", "./assets/Imagenes/footer/cell.png"], [1, "containerFooter"], [1, "copyright"], [1, "marvel"], ["href", "https://www.marvel.com", "target", "_blank"]],
       template: function FooterComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "footer");
@@ -1126,7 +1126,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-inicio"]],
       decls: 7,
       vars: 0,
-      consts: [["id", "main_slide"], ["src", "./../assets/Imagenes/2.jpg", "alt", "HEROMAR"], [1, "contenedor1"], ["id", "contenedorCards", 1, "contenedor2"], ["id", "title_marvel"]],
+      consts: [["id", "main_slide"], ["src", "./assets/Imagenes/2.jpg", "alt", "HEROMARVEL"], [1, "contenedor1"], ["id", "contenedorCards", 1, "contenedor2"], ["id", "title_marvel"]],
       template: function InicioComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
