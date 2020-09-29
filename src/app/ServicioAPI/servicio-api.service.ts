@@ -50,8 +50,8 @@ export class ServicioAPIService {
          * por medio de un swicth sabrá que información mostrar.
          */
         if(datos.data.results.length > 0){
-          document.getElementById('main_slide').style.display = 'none';
-          document.getElementById('title_marvel').style.display = "none";
+          //document.getElementById('main_slide').style.display = 'none';
+          //document.getElementById('title_marvel').style.display = "none";
         }
         switch (item) {
           case 'characters': {
