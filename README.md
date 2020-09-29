@@ -17,3 +17,4 @@ Integrantes:
 - Alejandro Bustamante
 - Julian Cuestas
 - Jonathan González
+- Katerine Martinez Muñoz
