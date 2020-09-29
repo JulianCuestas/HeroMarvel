@@ -32,6 +32,7 @@ export class AppComponent {
    * @param e 
    */
   botonPresionado (e) {
+    document.getElementById('loadingPage').style.display = 'block';
     let item;
 
     /**

@@ -21,7 +21,7 @@
       <li id="series">
         SERIES
       </li>
-      
+
     </ul>
   </div>
   <div id="nom_app">
@@ -34,50 +34,54 @@
 </div>
 
 <div id="menu_nav2">
-    <div id="div_log_s2">
-      <img id="logo" src="./assets/Imagenes/shield_b.png">
-    </div>
-    <div id="title_app2">
-      <span>
-        HEROMARVEL
-      </span>
-    </div>
-    <div id="img_menu" (click)="mostrar_menu();">
-      <div id="img">
-        <img id="ico_menu" src="./assets/Imagenes/menu.png"/>
-      </div>
+  <div id="div_log_s2">
+    <img id="logo" src="./assets/Imagenes/shield_b.png">
+  </div>
+  <div id="title_app2">
+    <span>
+      HEROMARVEL
+    </span>
+  </div>
+  <div id="img_menu" (click)="mostrar_menu();">
+    <div id="img">
+      <img id="ico_menu" src="./assets/Imagenes/menu.png" />
     </div>
   </div>
+</div>
 
-  <div id="menu_resp">
-    <div id="li_titulo_mr">
-      <span id="titulo_mr">
-        HEROMARVEL
-      </span>
-      <div id="img_close" (click)="cerrar_menu();">
-        <img src="./assets/Imagenes/close.png" style="width: 10px;" />
-      </div>
+<div id="menu_resp">
+  <div id="li_titulo_mr">
+    <span id="titulo_mr">
+      HEROMARVEL
+    </span>
+    <div id="img_close" (click)="cerrar_menu();">
+      <img src="./assets/Imagenes/close.png" style="width: 10px;" />
     </div>
-    <ul id="ul_mr" (click)="botonPresionado($event)">
-      <li class="item_ul_mr" id="characters">
-        PERSONAJES
-      </li>
-      <li class="item_ul_mr" id="comics">
-        COMICS
-      </li>
-      <li class="item_ul_mr" id="creators">
-        CREADORES
-      </li>
-      
-      <li class="item_ul_mr" id="stories">
-        STORIES
-      </li>
-      <li class="item_ul_mr" id="series">
-        SERIES
-      </li>
-
-    </ul>
   </div>
+  <ul id="ul_mr" (click)="botonPresionado($event)">
+    <li class="item_ul_mr" id="characters">
+      PERSONAJES
+    </li>
+    <li class="item_ul_mr" id="comics">
+      COMICS
+    </li>
+    <li class="item_ul_mr" id="creators">
+      CREADORES
+    </li>
+
+    <li class="item_ul_mr" id="stories">
+      STORIES
+    </li>
+    <li class="item_ul_mr" id="series">
+      SERIES
+    </li>
+
+  </ul>
+</div>
+
+<div id="loadingPage" class="loading" hidden>
+  <img src="../assets/Imagenes/marvel_loader.gif"/>
+</div>
 
 <div id="contenido">
     <app-inicio></app-inicio>
