@@ -77,9 +77,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ServicioAPIService = /*#__PURE__*/function () {
       function ServicioAPIService() {
         _classCallCheck(this, ServicioAPIService);
-
-        this.imgNoDisponibleAPI = 'http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708.gif';
-        this.imgNoDisponibleLocal = "assets/Imagenes/no-disponible.png";
       }
       /**
        * Método para construir la url del recurso que se va a consumir
@@ -124,41 +121,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             switch (item) {
               case 'characters':
                 {
-                  setTimeout(function () {
-                    _this.pintarCharacters(datos);
-                  }, 800);
+                  _this.pintarCharacters(datos);
+
                   break;
                 }
 
               case 'comics':
                 {
-                  setTimeout(function () {
-                    _this.pintarComics(datos);
-                  }, 800);
+                  _this.pintarComics(datos);
+
                   break;
                 }
 
               case 'creators':
                 {
-                  setTimeout(function () {
-                    _this.pintarCreators(datos);
-                  }, 800);
+                  _this.pintarCreators(datos);
+
                   break;
                 }
 
               case 'stories':
                 {
-                  setTimeout(function () {
-                    _this.pintarStories(datos);
-                  }, 800);
+                  _this.pintarStories(datos);
+
                   break;
                 }
 
               case 'series':
                 {
-                  setTimeout(function () {
-                    _this.pintarSeries(datos);
-                  }, 800);
+                  _this.pintarSeries(datos);
+
                   break;
                 }
 
@@ -168,8 +160,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   break;
                 }
             }
+
+            document.getElementById('loadingPage').style.display = '';
           })["catch"](function (error) {
             alert("Hubo errores en la consulta a la API, error: \n".concat(error));
+            document.getElementById('loadingPage').style.display = '';
           });
         } // Método para pintar Personajes
 
@@ -177,7 +172,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "pintarCharacters",
         value: function pintarCharacters(datos) {
           var contenedor = document.getElementById('contenedorCards');
-          var templateHTML = '';
+          var templateHTML = "";
 
           var _iterator = _createForOfIteratorHelper(datos.data.results),
               _step;
@@ -189,9 +184,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               if (hero.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available") {
                 continue;
               } else {
-                var imgHero = "".concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension);
                 var urlHero = hero.urls[0].url;
-                templateHTML += "\n      <a class=\"container-cards\" href=\"".concat(urlHero, "\" target=\"_blank\" >\n        <div class=\"card\" style=\"width: 19rem;\" >\n          <div class=\"card-title\">").concat(hero.name, "</div>\n          <img src=\"").concat(this.imgNoDisponibleAPI === imgHero ? this.imgNoDisponibleLocal : imgHero, "\" class=\"imagen-character\" />\n        </div>\n      </a>\n        ");
+                templateHTML += "\n          <div class=\"card\" style=\"width: 19rem;\" >\n              <a href=\"".concat(urlHero, " target=\"_blank\" >\n                <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-character\" />\n              </a><br/>\n              <div class=\"card-title\">").concat(hero.name, "</div>\n          </div>\n        ");
               }
             }
             /**
@@ -229,7 +223,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 continue;
               } else {
                 var urlHero = hero.urls[0].url;
-                templateHTML += "\n            <a class=\"container-cards\" href=\"".concat(urlHero, "\" target=\"_blank\">\n              <div class=\"card\" style=\"width: 19rem;\" >\n                  <div class=\"card-title\">").concat(hero.title, "</div><br/>\n                    <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" />\n                  <div class=\"mt-8\">\n                  <span class=\"items\">P\xE1ginas: ").concat(hero.pageCount, "</span><br/>\n                  <span class=\"items\">Formato: ").concat(hero.format, "</span>\n                  </div>\n              </div>\n            </a>\n          ");
+                templateHTML += "\n            <div class=\"card\" style=\"width: 19rem;\" >\n                <div class=\"card-title\">".concat(hero.title, "</div><br/>\n                <span class=\"items\">P\xE1ginas: ").concat(hero.pageCount, "</span><br/>\n                <span class=\"items\">Formato: ").concat(hero.format, "</span>\n                <a href=\"").concat(urlHero, " target=\"_blank\">\n                  <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" />\n                </a>\n            </div>\n          ");
               }
             }
             /**
@@ -311,7 +305,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
                       var c = _step5.value;
                       template2 += " ".concat(c.name, ",");
-                      templateHTML += "\n                <div class=\"card\" style=\"width: 19rem;\" >\n                    <div class=\"card-title\">".concat(hero.title, "</div><br/>\n                    <span class=\"items\">A\xF1o: ").concat(hero.endYear, "</span><br/>\n                    <span class=\"items\">Personajes: ").concat(template2, "</span><br/>\n                    <a href=\"").concat(urlHero, "\" target=\"blank\">\n                      <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" target=\"_blank\" />\n                    </a>\n                </div>\n              ");
+                      templateHTML += "\n                <div class=\"card\" style=\"width: 19rem;\" >\n                    <div class=\"card-title\">".concat(hero.title, "</div><br/>\n                    <span class=\"items\">A\xF1o: ").concat(hero.endYear, "</span><br/>\n                    <span class=\"items\">Personajes: ").concat(template2, "</span><br/>\n                    <a href=\"").concat(urlHero, " target=\"blank\">\n                      <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" target=\"_blank\" />\n                    </a>\n                </div>\n              ");
                       /**
                       * Estilos para el contenedor principal
                       */
@@ -363,7 +357,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 continue;
               } else {
                 var urlHero = hero.urls[0].url;
-                templateHTML += "\n          <a class=\"container-cards\" href=\"".concat(urlHero, "\" target=\"blank\">\n            <div class=\"card\" style=\"width: 19rem;\" >\n              <div class=\"card-title\">").concat(hero.firstName, "</div>\n              <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" target=\"_blank\" />\n            </div>\n          </a>\n        ");
+                templateHTML += "\n          <div class=\"card\" style=\"width: 19rem;\" >\n              <div class=\"card-title\">".concat(hero.firstName, "</div><br/>\n              <a href=\"").concat(urlHero, " target=\"blank\">\n                <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" target=\"_blank\" />\n              </a>\n          </div>\n        ");
               }
             }
             /**
@@ -483,6 +477,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "botonPresionado",
         value: function botonPresionado(e) {
+          document.getElementById('loadingPage').style.display = 'block';
           var item;
           /**
            * Los botones están compuestos por tags <li>
@@ -512,9 +507,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: AppComponent,
       selectors: [["app-root"]],
-      decls: 47,
+      decls: 49,
       vars: 0,
-      consts: [["id", "menu_nav"], ["id", "div_log"], ["id", "logo", "src", "./assets/Imagenes/shield_b.png"], ["id", "div_list_n"], ["id", "list_nav", 3, "click"], ["id", "comics"], ["id", "creators"], ["id", "characters"], ["id", "stories"], ["id", "series"], ["id", "nom_app"], ["id", "titulo_app"], ["id", "menu_nav2"], ["id", "div_log_s2"], ["id", "title_app2"], ["id", "img_menu", 3, "click"], ["id", "img"], ["id", "ico_menu", "src", "./assets/Imagenes/menu.png"], ["id", "menu_resp"], ["id", "li_titulo_mr"], ["id", "titulo_mr"], ["id", "img_close", 3, "click"], ["src", "./assets/Imagenes/close.png", 2, "width", "10px"], ["id", "ul_mr", 3, "click"], ["id", "characters", 1, "item_ul_mr"], ["id", "comics", 1, "item_ul_mr"], ["id", "creators", 1, "item_ul_mr"], ["id", "stories", 1, "item_ul_mr"], ["id", "series", 1, "item_ul_mr"], ["id", "contenido"]],
+      consts: [["id", "menu_nav"], ["id", "div_log"], ["id", "logo", "src", "./assets/Imagenes/shield_b.png"], ["id", "div_list_n"], ["id", "list_nav", 3, "click"], ["id", "comics"], ["id", "creators"], ["id", "characters"], ["id", "stories"], ["id", "series"], ["id", "nom_app"], ["id", "titulo_app"], ["id", "menu_nav2"], ["id", "div_log_s2"], ["id", "title_app2"], ["id", "img_menu", 3, "click"], ["id", "img"], ["id", "ico_menu", "src", "./assets/Imagenes/menu.png"], ["id", "menu_resp"], ["id", "li_titulo_mr"], ["id", "titulo_mr"], ["id", "img_close", 3, "click"], ["src", "./assets/Imagenes/close.png", 2, "width", "10px"], ["id", "ul_mr", 3, "click"], ["id", "characters", 1, "item_ul_mr"], ["id", "comics", 1, "item_ul_mr"], ["id", "creators", 1, "item_ul_mr"], ["id", "stories", 1, "item_ul_mr"], ["id", "series", 1, "item_ul_mr"], ["id", "loadingPage", "hidden", "", 1, "loading"], ["src", "../assets/Imagenes/marvel_loader.gif"], ["id", "contenido"]],
       template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -681,7 +676,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 29);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](46, "app-inicio");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](46, "img", 30);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "div", 31);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](48, "app-inicio");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -865,7 +866,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
       },
-      styles: ["#slide_inicio[_ngcontent-%COMP%]{\n  height: 433pt;\n  background-image: url('2.jpg');\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-attachment: fixed;\n}\n\n#title_marvel[_ngcontent-%COMP%]{\n  position: fixed;\n  top: 45%;\n  left: 38%;\n  margin: auto;\n  background:red;\n  font-family: 'Marvel';\n  font-size: 100pt;\n  color: white;\n  align-content: center;\n  width: 224pt;\n  height: 90pt;\n  z-index: 1;\n}\n\n#title_marvel[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]{\ntext-align: center;\nmargin: 5px 12px; \n}\n\n.contenedor1[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.contenedor2[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  border-radius: .8rem;\n  display: flex;\n  justify-content: space-around;\n  flex-wrap: wrap;\n  overflow: auto;\n}\n\n@media (max-width: 1010px) {\n  #title_marvel[_ngcontent-%COMP%]{\n    left: 28%;\n  }\n}\n\n@media (max-width: 659px) {\n  #title_marvel[_ngcontent-%COMP%]{\n    left: 20%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaW5pY2lvL2luaWNpby5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLDhCQUFvRDtFQUNwRCxzQkFBc0I7RUFDdEIsNEJBQTRCO0VBQzVCLDRCQUE0QjtBQUM5Qjs7QUFFQTtFQUNFLGVBQWU7RUFDZixRQUFRO0VBQ1IsU0FBUztFQUNULFlBQVk7RUFDWixjQUFjO0VBQ2QscUJBQXFCO0VBQ3JCLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1oscUJBQXFCO0VBQ3JCLFlBQVk7RUFDWixZQUFZO0VBQ1osVUFBVTtBQUNaOztBQUVBO0FBQ0Esa0JBQWtCO0FBQ2xCLGdCQUFnQjtBQUNoQjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxZQUFZO0VBQ1osYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixtQkFBbUI7QUFDckI7O0FBQ0E7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLG9CQUFvQjtFQUNwQixhQUFhO0VBQ2IsNkJBQTZCO0VBQzdCLGVBQWU7RUFDZixjQUFjO0FBQ2hCOztBQUVBO0VBQ0U7SUFDRSxTQUFTO0VBQ1g7QUFDRjs7QUFFQTtFQUNFO0lBQ0UsU0FBUztFQUNYO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9pbmljaW8vaW5pY2lvLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjc2xpZGVfaW5pY2lve1xuICBoZWlnaHQ6IDQzM3B0O1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJy4uLy4uL2Fzc2V0cy9JbWFnZW5lcy8yLmpwZycpO1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICBiYWNrZ3JvdW5kLWF0dGFjaG1lbnQ6IGZpeGVkO1xufVxuXG4jdGl0bGVfbWFydmVse1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIHRvcDogNDUlO1xuICBsZWZ0OiAzOCU7XG4gIG1hcmdpbjogYXV0bztcbiAgYmFja2dyb3VuZDpyZWQ7XG4gIGZvbnQtZmFtaWx5OiAnTWFydmVsJztcbiAgZm9udC1zaXplOiAxMDBwdDtcbiAgY29sb3I6IHdoaXRlO1xuICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XG4gIHdpZHRoOiAyMjRwdDtcbiAgaGVpZ2h0OiA5MHB0O1xuICB6LWluZGV4OiAxO1xufVxuXG4jdGl0bGVfbWFydmVsIHNwYW57XG50ZXh0LWFsaWduOiBjZW50ZXI7XG5tYXJnaW46IDVweCAxMnB4OyBcbn1cblxuLmNvbnRlbmVkb3IxIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG59XG4uY29udGVuZWRvcjIge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBib3JkZXItcmFkaXVzOiAuOHJlbTtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgb3ZlcmZsb3c6IGF1dG87XG59XG5cbkBtZWRpYSAobWF4LXdpZHRoOiAxMDEwcHgpIHtcbiAgI3RpdGxlX21hcnZlbHtcbiAgICBsZWZ0OiAyOCU7XG4gIH1cbn1cblxuQG1lZGlhIChtYXgtd2lkdGg6IDY1OXB4KSB7XG4gICN0aXRsZV9tYXJ2ZWx7XG4gICAgbGVmdDogMjAlO1xuICB9XG59Il19 */"]
+      styles: ["#slide_inicio[_ngcontent-%COMP%]{\n  height: 433pt;\n  background-image: url('2.jpg');\n  background-size: cover;\n  background-repeat: repeat-y;\n  background-attachment: fixed;\n}\n\n#title_marvel[_ngcontent-%COMP%]{\n  position: fixed;\n  top: 45%;\n  left: 38%;\n  margin: auto;\n  background:red;\n  font-family: 'Marvel';\n  font-size: 100pt;\n  color: white;\n  align-content: center;\n  width: 224pt;\n  height: 90pt;\n  z-index: 1;\n}\n\n#title_marvel[_ngcontent-%COMP%]   span[_ngcontent-%COMP%]{\ntext-align: center;\nmargin: 5px 12px; \n}\n\n.contenedor1[_ngcontent-%COMP%] {\n  background-image: url('2.jpg');\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.contenedor2[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  border-radius: .8rem;\n  display: flex;\n  justify-content: space-around;\n  flex-wrap: wrap;\n  overflow: auto;\n}\n\n@media (min-width: 1285px) {\n  #slide_inicio[_ngcontent-%COMP%]{\n    height: 670pt;\n  }\n}\n\n@media (max-width: 1010px) {\n  #title_marvel[_ngcontent-%COMP%]{\n    left: 28%;\n  }\n}\n\n@media (max-width: 659px) {\n  #title_marvel[_ngcontent-%COMP%]{\n    left: 20%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaW5pY2lvL2luaWNpby5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLDhCQUFvRDtFQUNwRCxzQkFBc0I7RUFDdEIsMkJBQTJCO0VBQzNCLDRCQUE0QjtBQUM5Qjs7QUFFQTtFQUNFLGVBQWU7RUFDZixRQUFRO0VBQ1IsU0FBUztFQUNULFlBQVk7RUFDWixjQUFjO0VBQ2QscUJBQXFCO0VBQ3JCLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1oscUJBQXFCO0VBQ3JCLFlBQVk7RUFDWixZQUFZO0VBQ1osVUFBVTtBQUNaOztBQUVBO0FBQ0Esa0JBQWtCO0FBQ2xCLGdCQUFnQjtBQUNoQjs7QUFFQTtFQUNFLDhCQUFvRDtFQUNwRCxXQUFXO0VBQ1gsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixtQkFBbUI7QUFDckI7O0FBQ0E7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLG9CQUFvQjtFQUNwQixhQUFhO0VBQ2IsNkJBQTZCO0VBQzdCLGVBQWU7RUFDZixjQUFjO0FBQ2hCOztBQUVBO0VBQ0U7SUFDRSxhQUFhO0VBQ2Y7QUFDRjs7QUFDQTtFQUNFO0lBQ0UsU0FBUztFQUNYO0FBQ0Y7O0FBRUE7RUFDRTtJQUNFLFNBQVM7RUFDWDtBQUNGIiwiZmlsZSI6InNyYy9hcHAvaW5pY2lvL2luaWNpby5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI3NsaWRlX2luaWNpb3tcbiAgaGVpZ2h0OiA0MzNwdDtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi8uLi9hc3NldHMvSW1hZ2VuZXMvMi5qcGcnKTtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IHJlcGVhdC15O1xuICBiYWNrZ3JvdW5kLWF0dGFjaG1lbnQ6IGZpeGVkO1xufVxuXG4jdGl0bGVfbWFydmVse1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIHRvcDogNDUlO1xuICBsZWZ0OiAzOCU7XG4gIG1hcmdpbjogYXV0bztcbiAgYmFja2dyb3VuZDpyZWQ7XG4gIGZvbnQtZmFtaWx5OiAnTWFydmVsJztcbiAgZm9udC1zaXplOiAxMDBwdDtcbiAgY29sb3I6IHdoaXRlO1xuICBhbGlnbi1jb250ZW50OiBjZW50ZXI7XG4gIHdpZHRoOiAyMjRwdDtcbiAgaGVpZ2h0OiA5MHB0O1xuICB6LWluZGV4OiAxO1xufVxuXG4jdGl0bGVfbWFydmVsIHNwYW57XG50ZXh0LWFsaWduOiBjZW50ZXI7XG5tYXJnaW46IDVweCAxMnB4OyBcbn1cblxuLmNvbnRlbmVkb3IxIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi8uLi9hc3NldHMvSW1hZ2VuZXMvMi5qcGcnKTtcbiAgd2lkdGg6IDEwMCU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuLmNvbnRlbmVkb3IyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgYm9yZGVyLXJhZGl1czogLjhyZW07XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYXJvdW5kO1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIG92ZXJmbG93OiBhdXRvO1xufVxuXG5AbWVkaWEgKG1pbi13aWR0aDogMTI4NXB4KSB7XG4gICNzbGlkZV9pbmljaW97XG4gICAgaGVpZ2h0OiA2NzBwdDtcbiAgfVxufVxuQG1lZGlhIChtYXgtd2lkdGg6IDEwMTBweCkge1xuICAjdGl0bGVfbWFydmVse1xuICAgIGxlZnQ6IDI4JTtcbiAgfVxufVxuXG5AbWVkaWEgKG1heC13aWR0aDogNjU5cHgpIHtcbiAgI3RpdGxlX21hcnZlbHtcbiAgICBsZWZ0OiAyMCU7XG4gIH1cbn0iXX0= */"]
     });
     /*@__PURE__*/
 
