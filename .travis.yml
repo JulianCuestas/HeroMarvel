@@ -9,6 +9,6 @@ before_script:
     - npm install -g angular-cli-ghpages    
 script:
     - ng build --base-href https://JulianCuestas.github.io/HeroMarvel/
-    - ngh
+    - ngh --no-silent
 
 
