@@ -40,7 +40,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class ServicioAPIService {
-    constructor() { }
+    constructor() {
+        this.imgNoDisponibleAPI = 'http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708.gif';
+        this.imgNoDisponibleLocal = `assets/Imagenes/no-disponible.png`;
+    }
     /**
      * Método para construir la url del recurso que se va a consumir
      * luego llama al método del servicio obtenerDatosAPI()
@@ -109,20 +112,21 @@ class ServicioAPIService {
     // Método para pintar Personajes
     pintarCharacters(datos) {
         const contenedor = document.getElementById('contenedorCards');
-        let templateHTML = "";
+        let templateHTML = '';
         for (const hero of datos.data.results) {
             if (hero.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available") {
                 continue;
             }
             else {
-                let urlHero = hero.urls[0].url;
+                const imgHero = `${hero.thumbnail.path}.${hero.thumbnail.extension}`;
+                const urlHero = hero.urls[0].url;
                 templateHTML += `
-          <div class="card" style="width: 19rem;" >
-              <a href="${urlHero} target="_blank" >
-                <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-character" />
-              </a><br/>
-              <div class="card-title">${hero.name}</div>
-          </div>
+      <a class="container-cards" href="${urlHero}" target="_blank" >
+        <div class="card" style="width: 19rem;" >
+          <div class="card-title">${hero.name}</div>
+          <img src="${this.imgNoDisponibleAPI === imgHero ? this.imgNoDisponibleLocal : imgHero}" class="imagen-character" />
+        </div>
+      </a>
         `;
             }
         }
@@ -147,14 +151,16 @@ class ServicioAPIService {
             else {
                 let urlHero = hero.urls[0].url;
                 templateHTML += `
-            <div class="card" style="width: 19rem;" >
-                <div class="card-title">${hero.title}</div><br/>
-                <span class="items">Páginas: ${hero.pageCount}</span><br/>
-                <span class="items">Formato: ${hero.format}</span>
-                <a href="${urlHero} target="_blank">
-                  <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-comics" />
-                </a>
-            </div>
+            <a class="container-cards" href="${urlHero}" target="_blank">
+              <div class="card" style="width: 19rem;" >
+                  <div class="card-title">${hero.title}</div><br/>
+                    <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-comics" />
+                  <div class="mt-8">
+                  <span class="items">Páginas: ${hero.pageCount}</span><br/>
+                  <span class="items">Formato: ${hero.format}</span>
+                  </div>
+              </div>
+            </a>
           `;
             }
         }
@@ -214,7 +220,7 @@ class ServicioAPIService {
                     <div class="card-title">${hero.title}</div><br/>
                     <span class="items">Año: ${hero.endYear}</span><br/>
                     <span class="items">Personajes: ${template2}</span><br/>
-                    <a href="${urlHero} target="blank">
+                    <a href="${urlHero}" target="blank">
                       <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-comics" target="_blank" />
                     </a>
                 </div>
@@ -247,12 +253,12 @@ class ServicioAPIService {
             else {
                 let urlHero = hero.urls[0].url;
                 templateHTML += `
-          <div class="card" style="width: 19rem;" >
-              <div class="card-title">${hero.firstName}</div><br/>
-              <a href="${urlHero} target="blank">
-                <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-comics" target="_blank" />
-              </a>
-          </div>
+          <a class="container-cards" href="${urlHero}" target="blank">
+            <div class="card" style="width: 19rem;" >
+              <div class="card-title">${hero.firstName}</div>
+              <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-comics" target="_blank" />
+            </div>
+          </a>
         `;
             }
         }

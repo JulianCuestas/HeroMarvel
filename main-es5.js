@@ -77,6 +77,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var ServicioAPIService = /*#__PURE__*/function () {
       function ServicioAPIService() {
         _classCallCheck(this, ServicioAPIService);
+
+        this.imgNoDisponibleAPI = 'http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708.gif';
+        this.imgNoDisponibleLocal = "assets/Imagenes/no-disponible.png";
       }
       /**
        * Método para construir la url del recurso que se va a consumir
@@ -172,7 +175,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "pintarCharacters",
         value: function pintarCharacters(datos) {
           var contenedor = document.getElementById('contenedorCards');
-          var templateHTML = "";
+          var templateHTML = '';
 
           var _iterator = _createForOfIteratorHelper(datos.data.results),
               _step;
@@ -184,8 +187,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               if (hero.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available") {
                 continue;
               } else {
+                var imgHero = "".concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension);
                 var urlHero = hero.urls[0].url;
-                templateHTML += "\n          <div class=\"card\" style=\"width: 19rem;\" >\n              <a href=\"".concat(urlHero, " target=\"_blank\" >\n                <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-character\" />\n              </a><br/>\n              <div class=\"card-title\">").concat(hero.name, "</div>\n          </div>\n        ");
+                templateHTML += "\n      <a class=\"container-cards\" href=\"".concat(urlHero, "\" target=\"_blank\" >\n        <div class=\"card\" style=\"width: 19rem;\" >\n          <div class=\"card-title\">").concat(hero.name, "</div>\n          <img src=\"").concat(this.imgNoDisponibleAPI === imgHero ? this.imgNoDisponibleLocal : imgHero, "\" class=\"imagen-character\" />\n        </div>\n      </a>\n        ");
               }
             }
             /**
@@ -223,7 +227,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 continue;
               } else {
                 var urlHero = hero.urls[0].url;
-                templateHTML += "\n            <div class=\"card\" style=\"width: 19rem;\" >\n                <div class=\"card-title\">".concat(hero.title, "</div><br/>\n                <span class=\"items\">P\xE1ginas: ").concat(hero.pageCount, "</span><br/>\n                <span class=\"items\">Formato: ").concat(hero.format, "</span>\n                <a href=\"").concat(urlHero, " target=\"_blank\">\n                  <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" />\n                </a>\n            </div>\n          ");
+                templateHTML += "\n            <a class=\"container-cards\" href=\"".concat(urlHero, "\" target=\"_blank\">\n              <div class=\"card\" style=\"width: 19rem;\" >\n                  <div class=\"card-title\">").concat(hero.title, "</div><br/>\n                    <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" />\n                  <div class=\"mt-8\">\n                  <span class=\"items\">P\xE1ginas: ").concat(hero.pageCount, "</span><br/>\n                  <span class=\"items\">Formato: ").concat(hero.format, "</span>\n                  </div>\n              </div>\n            </a>\n          ");
               }
             }
             /**
@@ -305,7 +309,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
                       var c = _step5.value;
                       template2 += " ".concat(c.name, ",");
-                      templateHTML += "\n                <div class=\"card\" style=\"width: 19rem;\" >\n                    <div class=\"card-title\">".concat(hero.title, "</div><br/>\n                    <span class=\"items\">A\xF1o: ").concat(hero.endYear, "</span><br/>\n                    <span class=\"items\">Personajes: ").concat(template2, "</span><br/>\n                    <a href=\"").concat(urlHero, " target=\"blank\">\n                      <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" target=\"_blank\" />\n                    </a>\n                </div>\n              ");
+                      templateHTML += "\n                <div class=\"card\" style=\"width: 19rem;\" >\n                    <div class=\"card-title\">".concat(hero.title, "</div><br/>\n                    <span class=\"items\">A\xF1o: ").concat(hero.endYear, "</span><br/>\n                    <span class=\"items\">Personajes: ").concat(template2, "</span><br/>\n                    <a href=\"").concat(urlHero, "\" target=\"blank\">\n                      <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" target=\"_blank\" />\n                    </a>\n                </div>\n              ");
                       /**
                       * Estilos para el contenedor principal
                       */
@@ -357,7 +361,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 continue;
               } else {
                 var urlHero = hero.urls[0].url;
-                templateHTML += "\n          <div class=\"card\" style=\"width: 19rem;\" >\n              <div class=\"card-title\">".concat(hero.firstName, "</div><br/>\n              <a href=\"").concat(urlHero, " target=\"blank\">\n                <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" target=\"_blank\" />\n              </a>\n          </div>\n        ");
+                templateHTML += "\n          <a class=\"container-cards\" href=\"".concat(urlHero, "\" target=\"blank\">\n            <div class=\"card\" style=\"width: 19rem;\" >\n              <div class=\"card-title\">").concat(hero.firstName, "</div>\n              <img src=\"").concat(hero.thumbnail.path, ".").concat(hero.thumbnail.extension, "\" class=\"imagen-comics\" target=\"_blank\" />\n            </div>\n          </a>\n        ");
               }
             }
             /**
