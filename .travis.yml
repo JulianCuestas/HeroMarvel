@@ -1,4 +1,8 @@
 language: node_js
+notifications:
+    email:
+      recipients:
+        - julian.dcj06@gmail.com
 node_js: 
     - 12.17.0
 cache: npm
@@ -9,6 +13,6 @@ before_script:
     - npm install -g angular-cli-ghpages    
 script:
     - ng build --base-href https://JulianCuestas.github.io/HeroMarvel/
-    - ngh
+    - ngh --no-silent
 
 
