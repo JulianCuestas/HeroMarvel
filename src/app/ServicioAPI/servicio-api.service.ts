@@ -8,7 +8,13 @@ import { NgStyle } from '@angular/common';
 })
 export class ServicioAPIService {
 
-  constructor() { }
+  private imgNoDisponibleAPI: string;
+  private imgNoDisponibleLocal: string;
+
+  constructor() {
+    this.imgNoDisponibleAPI = 'http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708.gif'
+    this.imgNoDisponibleLocal = `assets/Imagenes/no-disponible.png`;
+  }
 
   /**
    * Método para construir la url del recurso que se va a consumir
@@ -16,7 +22,7 @@ export class ServicioAPIService {
    * => Recibe como parámetro el id del botón 
    * @param item 
    */
-  construirUrl (item) {
+  construirUrl(item) {
     let url = `https://gateway.marvel.com/v1/public/${item}?ts=1&apikey=${environment.apikey}&limit=100`;
     /**
      * Llamar método obtenerDatosAPI() propio del servicio
@@ -33,12 +39,12 @@ export class ServicioAPIService {
    * => Recibe como parámetro la url que se va a consumir o consultar
    * @param url 
    */
-  obtenerDatosAPI (url, item) {
+  obtenerDatosAPI(url, item) {
     fetch(url)
       .then((resp => {
         return resp.json();
       }))
-      .then((datos => { 
+      .then((datos => {
         /**
          * Una vez obtenidos los datos llamar el método que se encargará 
          * de mostrar la información en cards dentro del contenedor principal 
@@ -46,31 +52,31 @@ export class ServicioAPIService {
          */
         switch (item) {
           case 'characters': {
-            setTimeout( ()=> {
+            setTimeout(() => {
               this.pintarCharacters(datos);
             }, 800);
             break;
           }
           case 'comics': {
-            setTimeout( ()=> {
+            setTimeout(() => {
               this.pintarComics(datos);
             }, 800);
             break;
           }
           case 'creators': {
-            setTimeout( ()=> {
+            setTimeout(() => {
               this.pintarCreators(datos);
             }, 800);
             break;
           }
-          case 'stories':{
-            setTimeout( ()=> {
+          case 'stories': {
+            setTimeout(() => {
               this.pintarStories(datos);
             }, 800);
             break;
           }
           case 'series': {
-            setTimeout( ()=> {
+            setTimeout(() => {
               this.pintarSeries(datos);
             }, 800);
             break;
@@ -79,7 +85,7 @@ export class ServicioAPIService {
             alert('La opción seleccionada no es válida!!');
             break;
           }
-        } 
+        }
       }))
       .catch((error) => {
         alert(`Hubo errores en la consulta a la API, error: \n${error}`);
@@ -89,20 +95,20 @@ export class ServicioAPIService {
   // Método para pintar Personajes
   pintarCharacters(datos) {
     const contenedor = document.getElementById('contenedorCards');
-    let templateHTML = "";
-
+    let templateHTML = '';
     for (const hero of datos.data.results) {
       if (hero.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available") {
         continue;
       } else {
-        let urlHero = hero.urls[0].url;
-        templateHTML += `
-          <div class="card" style="width: 19rem;" >
-              <a href="${urlHero} target="_blank" >
-                <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-character" />
-              </a><br/>
-              <div class="card-title">${hero.name}</div>
-          </div>
+      const imgHero = `${hero.thumbnail.path}.${hero.thumbnail.extension}`;
+      const urlHero = hero.urls[0].url;
+      templateHTML += `
+      <a class="container-cards" href="${urlHero}" target="_blank" >
+        <div class="card" style="width: 19rem;" >
+          <div class="card-title">${hero.name}</div>
+          <img src="${this.imgNoDisponibleAPI === imgHero ? this.imgNoDisponibleLocal : imgHero}" class="imagen-character" />
+        </div>
+      </a>
         `;
       }
     }
@@ -130,14 +136,16 @@ export class ServicioAPIService {
       } else {
         let urlHero = hero.urls[0].url;
         templateHTML += `
-            <div class="card" style="width: 19rem;" >
-                <div class="card-title">${hero.title}</div><br/>
-                <span class="items">Páginas: ${hero.pageCount}</span><br/>
-                <span class="items">Formato: ${hero.format}</span>
-                <a href="${urlHero} target="_blank">
-                  <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-comics" />
-                </a>
-            </div>
+            <a class="container-cards" href="${urlHero}" target="_blank">
+              <div class="card" style="width: 19rem;" >
+                  <div class="card-title">${hero.title}</div><br/>
+                    <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-comics" />
+                  <div class="mt-8">
+                  <span class="items">Páginas: ${hero.pageCount}</span><br/>
+                  <span class="items">Formato: ${hero.format}</span>
+                  </div>
+              </div>
+            </a>
           `;
       }
     }
@@ -205,7 +213,7 @@ export class ServicioAPIService {
                     <div class="card-title">${hero.title}</div><br/>
                     <span class="items">Año: ${hero.endYear}</span><br/>
                     <span class="items">Personajes: ${template2}</span><br/>
-                    <a href="${urlHero} target="blank">
+                    <a href="${urlHero}" target="blank">
                       <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-comics" target="_blank" />
                     </a>
                 </div>
@@ -224,7 +232,7 @@ export class ServicioAPIService {
           })
           .catch(err => {
             console.log(err);
-          })
+          });
       }
     }
   }
@@ -242,12 +250,12 @@ export class ServicioAPIService {
       } else {
         let urlHero = hero.urls[0].url;
         templateHTML += `
-          <div class="card" style="width: 19rem;" >
-              <div class="card-title">${hero.firstName}</div><br/>
-              <a href="${urlHero} target="blank">
-                <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-comics" target="_blank" />
-              </a>
-          </div>
+          <a class="container-cards" href="${urlHero}" target="blank">
+            <div class="card" style="width: 19rem;" >
+              <div class="card-title">${hero.firstName}</div>
+              <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" class="imagen-comics" target="_blank" />
+            </div>
+          </a>
         `;
       }
     }

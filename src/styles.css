@@ -260,3 +260,18 @@ body{
     background-color: rgb(33,33,33);
   }
 }
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.container-cards {
+  text-decoration: none;
+  color: #000;
+}
+
+.card:hover {
+  margin-top: 10px;
+  background-color: gray;
+  color: white;
+}
